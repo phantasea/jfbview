@@ -606,45 +606,41 @@ std::unique_ptr<Registry> BuildRegistry() {
   registry->Register('k', std::move(std::make_unique<MoveUpCommand>()));
   registry->Register(KEY_UP, std::move(std::make_unique<MoveUpCommand>()));
   registry->Register('l', std::move(std::make_unique<MoveRightCommand>()));
-  registry->Register(
-      KEY_RIGHT, std::move(std::make_unique<MoveRightCommand>()));
+  registry->Register( KEY_RIGHT, std::move(std::make_unique<MoveRightCommand>()));
   registry->Register(' ', std::move(std::make_unique<ScreenDownCommand>()));
-  registry->Register(
-      6, std::move(std::make_unique<ScreenDownCommand>()));               // ^F
-  registry->Register(2, std::move(std::make_unique<ScreenUpCommand>()));  // ^B
+  registry->Register( 6, std::move(std::make_unique<ScreenDownCommand>()));  // ^F
+  registry->Register('n', std::move(std::make_unique<ScreenDownCommand>()));
+  registry->Register( 2, std::move(std::make_unique<ScreenUpCommand>()));    // ^B
+  registry->Register('p', std::move(std::make_unique<ScreenUpCommand>()));
   registry->Register('J', std::move(std::make_unique<PageDownCommand>()));
   registry->Register(KEY_NPAGE, std::move(std::make_unique<PageDownCommand>()));
   registry->Register('K', std::move(std::make_unique<PageUpCommand>()));
   registry->Register(KEY_PPAGE, std::move(std::make_unique<PageUpCommand>()));
 
-  registry->Register('=', std::move(std::make_unique<ZoomInCommand>()));
   registry->Register('+', std::move(std::make_unique<ZoomInCommand>()));
+  registry->Register('i', std::move(std::make_unique<ZoomInCommand>()));
   registry->Register('-', std::move(std::make_unique<ZoomOutCommand>()));
-  registry->Register('z', std::move(std::make_unique<SetZoomCommand>()));
-  registry->Register('s', std::move(std::make_unique<ZoomToWidthCommand>()));
+  registry->Register('o', std::move(std::make_unique<ZoomOutCommand>()));
+  registry->Register('=', std::move(std::make_unique<SetZoomCommand>()));
+  registry->Register('w', std::move(std::make_unique<ZoomToWidthCommand>()));
   registry->Register('a', std::move(std::make_unique<ZoomToFitCommand>()));
 
-  registry->Register('r', std::move(std::make_unique<SetRotationCommand>()));
-  registry->Register('>', std::move(std::make_unique<RotateCommand>(90)));
-  registry->Register('.', std::move(std::make_unique<RotateCommand>(90)));
-  registry->Register('<', std::move(std::make_unique<RotateCommand>(-90)));
-  registry->Register(',', std::move(std::make_unique<RotateCommand>(-90)));
+  registry->Register('u', std::move(std::make_unique<SetRotationCommand>()));
+  registry->Register('r', std::move(std::make_unique<RotateCommand>(90)));
+  registry->Register('R', std::move(std::make_unique<RotateCommand>(-90)));
 
   registry->Register('g', std::move(std::make_unique<GoToPageCommand>(0)));
   registry->Register(KEY_HOME, std::move(std::make_unique<GoToPageCommand>(0)));
-  registry->Register(
-      'G', std::move(std::make_unique<GoToPageCommand>(INT_MAX)));
-  registry->Register(
-      KEY_END, std::move(std::make_unique<GoToPageCommand>(INT_MAX)));
+  registry->Register('G', std::move(std::make_unique<GoToPageCommand>(INT_MAX)));
+  registry->Register(KEY_END, std::move(std::make_unique<GoToPageCommand>(INT_MAX)));
 
-  registry->Register(
-      '\t', std::move(std::make_unique<ShowOutlineViewCommand>()));
+  registry->Register('\t', std::move(std::make_unique<ShowOutlineViewCommand>()));
   registry->Register('/', std::move(std::make_unique<ShowSearchViewCommand>()));
 
-  registry->Register('m', std::move(std::make_unique<SaveStateCommand>()));
-  registry->Register('`', std::move(std::make_unique<RestoreStateCommand>()));
+  registry->Register('s', std::move(std::make_unique<SaveStateCommand>()));
+  registry->Register('S', std::move(std::make_unique<RestoreStateCommand>()));
 
-  registry->Register('e', std::move(std::make_unique<ReloadCommand>()));
+  registry->Register(';', std::move(std::make_unique<ReloadCommand>()));
 
   return registry;
 }
