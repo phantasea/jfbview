@@ -81,7 +81,7 @@ class Viewer {
     int ScreenHeight;
 
     State(
-        int page = 0, float zoom = ZOOM_TO_WIDTH, int rotation = 0,
+        int page = 0, float zoom = ZOOM_TO_FIT, int rotation = 0,
         int x_offset = 0, int y_offset = 0)
         : Page(page),
           Zoom(zoom),
