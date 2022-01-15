@@ -28,6 +28,7 @@
 #define JFBVIEW_BINARY_NAME "jfbview"
 #endif
 
+#include <sys/ioctl.h>
 #include <curses.h>
 #include <fcntl.h>
 #include <getopt.h>
