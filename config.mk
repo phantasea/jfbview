@@ -1,0 +1,2 @@
+MUPDF_VERSION = 10016
+OPENJP2 = openjp2
