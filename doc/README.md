@@ -1,23 +1,31 @@
 JFBVIEW
 =======
+![GitHub Workflow Build Status](https://github.com/jichu4n/jfbview/workflows/build/badge.svg)
 
-**jfbview** is a PDF and image viewer for the Linux framebuffer. It's fast and has
-some advanced features including:
+**jfbview** is a PDF and image viewer for the Linux framebuffer. Features include:
 
-  * Arbitrary zoom (10% - 1000%) and rotation;
-  * Table of Contents (TOC) viewer for PDF documents;
-  * Interactive text search for PDF documents;
-  * Multi-threaded rendering;
-  * Asynchronous background pre-caching;
-  * Customizable multi-threaded caching.
+  * Zoom and rotation
+  * Table of Contents (TOC) viewer
+  * Interactive text search
 
 The home page of jfbview is at https://github.com/jichu4n/jfbview.
 
-![GitHub Workflow Build Status](https://github.com/jichu4n/jfbview/workflows/build/badge.svg)
-[![Travis CI Build Status](https://travis-ci.org/jichu4n/jfbview.svg?branch=master)](https://travis-ci.org/jichu4n/jfbview)
+## Screenshots
 
-INSTALLATION
-------------
+### Scroll & zoom
+
+<p align="center"><img src="/doc/zoom-rotate.gif"/></p>
+
+### Table of contents
+
+<p align="center"><img src="/doc/toc.gif"/></p>
+
+### Search
+
+<p align="center"><img src="/doc/search.gif"/></p>
+
+
+## Installation
 
 ### Arch Linux / Manjaro
 
@@ -34,20 +42,21 @@ Source: https://aur.archlinux.org/packages/jfbview
 See [Releases](https://github.com/jichu4n/jfbview/releases) for pre-built
 `.deb` packages for the following environments:
 
-  - Debian 10 "buster": `amd64`, `i386`, `arm64` (ARMv8), `armhf` (ARMv7), `rpi` (Raspbian on ARMv6)
-  - Debian 9 "stretch": `amd64`, `i386`, `arm64`, `armhf`, `rpi`
-  - Ubuntu 20.04 LTS Focal: `amd64`
-  - Ubuntu 18.04 LTS Bionic: `amd64`, `i386`
-  - Ubuntu 16.04 LTS Xenial: `amd64`, `i386`
+  - Debian 13 "trixie": `amd64`, `i386`, `arm64` (ARMv8), `armhf` (ARMv7)
+  - Debian 12 "bookworm": `amd64`, `i386`, `arm64`, `armhf`
+  - Debian 11 "bullseye": `amd64`, `i386`, `arm64`, `armhf`
+  - Ubuntu 24.04 LTS Noble: `amd64`
+  - Ubuntu 22.04 LTS Jammy: `amd64`
 
 To build from source, fetch the source code along with transitive dependencies as described in the [Source code](#source-code) section below, then see
 [`packaging/build-package-deb.sh`](https://github.com/jichu4n/jfbview/blob/master/packaging/build-package-deb.sh).
 
-### CentOS / Fedora
+### Fedora
 
 See [Releases](https://github.com/jichu4n/jfbview/releases) for pre-built `.rpm` packages for the following environments:
 
-  - CentOS 8 and Fedora 28+: `x86_64`, `aarch64` (ARMv8)
+  - Fedora 43: `x86_64`, `aarch64` (ARMv8)
+  - Fedora 42: `x86_64`, `aarch64`
 
 To build from source, fetch the source code along with transitive dependencies as described in the [Source code](#source-code) section below, then see
 [`packaging/build-package-rpm.sh`](https://github.com/jichu4n/jfbview/blob/master/packaging/build-package-rpm.sh).
@@ -97,18 +106,15 @@ make
 make install
 ```
 
-DOCUMENTATION
--------------
+## Documentation
 
 See [jfbview man page](https://htmlpreview.github.io/?https://github.com/jichu4n/jfbview/blob/master/doc/jfbview.1.html).
 
-ABOUT
------
+## About
 
 jfbview is written by Chuan Ji, and is distributed under the Apache License v2.
 
-HISTORY
--------
+## History
 
 jfbview started as a fork of FBPDF by Ali Gholami Rudi with improvements and bug
 fixes, and was named JFBPDF. The JFBPDF code (in C) grew steadily more

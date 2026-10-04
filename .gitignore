@@ -2,7 +2,14 @@
 *.o
 *.d
 /build/
+/build_tests/
 /upload/
 /.ccls-cache/
 /compile_commands.json
 /.vscode/
+/.claude/
+
+# QEMU test artifacts
+/tests/qemu/*.qcow2
+/tests/qemu/out/
+

@@ -18,13 +18,13 @@ function install_build_deps() {
   budo git clone https://aur.archlinux.org/jfbview-git.git /home/builduser/jfbview-git
   cd /home/builduser/jfbview-git
   budo mkdir -p src
-  budo rsync -a "${src_dir}"/ src/jfbview/
+  budo rsync -a --exclude='/build*' --exclude='/upload' "${src_dir}"/ src/jfbview/
 }
 
 function build_package() {
   cd /home/builduser/jfbview-git
 
-  budo makepkg --syncdeps --noconfirm --noextract
+  budo env MAKEFLAGS="-j$(nproc)" makepkg --syncdeps --noconfirm --noextract
 
   mkdir -p "${src_dir}"/upload
   mv *.pkg.tar.* "${src_dir}"/upload/
@@ -45,7 +45,7 @@ function run_tests() {
   budo cmake -H. -Bbuild_tests \
     -DBUILD_TESTING=ON \
     -DCMAKE_BUILD_TYPE=Debug
-  budo cmake --build build_tests
+  budo cmake --build build_tests -- -j$(nproc)
   budo env CTEST_OUTPUT_ON_FAILURE=1 \
     cmake --build build_tests --target test
 }
